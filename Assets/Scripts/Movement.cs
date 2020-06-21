@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    public float sprintSpeed = 9f;
     public float walkSpeed = 2f;
     public float moveSpeed = 6f;
     public float jumpSpeed = 2f;
@@ -53,6 +54,8 @@ public class Movement : MonoBehaviour
 
         if (Input.GetButton("Walk")) {
             moveDirection *= walkSpeed;
+        } else if (Input.GetButton("Sprint")) {
+            moveDirection *= sprintSpeed;
         } else {
             moveDirection *= moveSpeed;
         }
