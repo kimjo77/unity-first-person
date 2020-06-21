@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float walkSpeed = 2f;
     public float moveSpeed = 6f;
-    public float jumpSpeed = 2f;
+    public float jumpSpeed = 8f;
     public float jumpVelocity = 0f;
     public float gravity = 20f;
     public float lookSensitivity = 100f;
@@ -50,13 +49,7 @@ public class Movement : MonoBehaviour
         camera.localRotation = Quaternion.Euler(rotationX, 0f, 0f);
         
         moveDirection = transform.right * Input.GetAxis("Horizontal") + transform.forward * Input.GetAxis("Vertical"); 
-
-        if (Input.GetButton("Walk")) {
-            moveDirection *= walkSpeed;
-        } else {
-            moveDirection *= moveSpeed;
-        }
-
+        moveDirection *= moveSpeed;
         moveDirection += transform.up * jumpVelocity;
         
         if (characterController.isGrounded) {
